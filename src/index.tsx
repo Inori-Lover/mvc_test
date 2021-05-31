@@ -1,5 +1,5 @@
-import { render } from 'react-dom'
+import { render } from "react-dom";
 
-import { Entry } from './entry'
+import { Entry } from "./entry";
 
-render(<Entry />, document.getElementById('root'))
+render(<Entry />, document.getElementById("root"));
