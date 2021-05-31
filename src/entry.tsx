@@ -82,7 +82,7 @@ export const Entry = memo(function Entry() {
           显示已完成
         </label>
         <hr />
-        <List data={dataList} onChange={setTaskList} />
+        <List data={dataList} total={taskList.length} onChange={setTaskList} />
       </div>
     </section>
   );

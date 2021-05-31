@@ -4,9 +4,14 @@ import { I_Item } from "../types";
 
 export interface ListProps {
   data: I_Item[];
+  total: number;
   onChange: (nextList: I_Item[]) => void;
 }
-export const List: FC<ListProps> = memo(function List({ data, onChange }) {
+export const List: FC<ListProps> = memo(function List({
+  data,
+  total,
+  onChange,
+}) {
   const changeHandle = useCallback(
     (item: I_Item, index: number) => {
       const clone = [...data];
@@ -33,7 +38,7 @@ export const List: FC<ListProps> = memo(function List({ data, onChange }) {
           onDelete={deleteHandle}
         />
       ))}
-      <div>total: {data.length}</div>
+      <div>total: {total}</div>
     </>
   );
 });
