@@ -1,3 +1,3 @@
 export function id() {
-  return `${Date.now()}`;
+  return `${Date.now()}` + `${Math.random()}`.replace("0.", "");
 }
