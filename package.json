@@ -4,7 +4,8 @@
   "description": "",
   "private": true,
   "scripts": {
-    "start": "webpack serve"
+    "start": "webpack serve",
+    "build": "webpack build"
   },
   "devDependencies": {
     "@types/react": "^17.0.8",

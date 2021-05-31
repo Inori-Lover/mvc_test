@@ -8,6 +8,9 @@ module.exports = {
     compress: true,
     port: 8000,
   },
+  output: {
+    path: path.resolve(__dirname, "docs"),
+  },
   resolve: {
     extensions: [".tsx", ".ts", "..."],
   },
