@@ -7,12 +7,17 @@ export interface ListProps {
   onChange: (nextList: I_Item[]) => void;
 }
 export const List: FC<ListProps> = memo(function List({ data, onChange }) {
-  const toggleHandle = useCallback(
-    (nextCheck: boolean, index: number) => {
+  const changeHandle = useCallback(
+    (item: I_Item, index: number) => {
       const clone = [...data];
-      clone[index] = { ...clone[index] };
-      clone[index].done = nextCheck;
+      clone[index] = item;
       onChange(clone);
+    },
+    [onChange, data]
+  );
+  const deleteHandle = useCallback(
+    (idx: number) => {
+      onChange(data.filter((_, index) => idx !== index));
     },
     [onChange, data]
   );
@@ -24,9 +29,11 @@ export const List: FC<ListProps> = memo(function List({ data, onChange }) {
           key={item.key}
           index={index}
           data={item}
-          onToggle={toggleHandle}
+          onChanhe={changeHandle}
+          onDelete={deleteHandle}
         />
       ))}
+      <div>total: {data.length}</div>
     </>
   );
 });

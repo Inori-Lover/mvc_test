@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+  mode: "development",
   devtool: "inline-source-map",
   devServer: {
     contentBase: path.join(__dirname, "dist"),
@@ -12,12 +13,16 @@ module.exports = {
     path: path.resolve(__dirname, "docs"),
   },
   resolve: {
-    extensions: [".tsx", ".ts", "..."],
+    extensions: [".tsx", ".ts", ".css", "..."],
   },
   module: {
     rules: [
       // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
       { test: /\.tsx?$/, loader: "ts-loader" },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
     ],
   },
   plugins: [

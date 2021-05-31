@@ -1,0 +1,15 @@
+.deleteIcon {
+  opacity: 0;
+  cursor: pointer;
+}
+
+.task-name {
+  flex: 1 1 auto;
+}
+
+.item-wraper:hover .deleteIcon {
+  opacity: 1;
+}
+.item-wraper:hover .deleteIcon.hide {
+  opacity: 0;
+}
